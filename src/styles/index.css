@@ -4,16 +4,25 @@ body {
 .list-group {
   width: 500px;
   background: black;
+  margin-left: 150px;
+}
+.list-group-item{
+  padding: 17px;
 }
 .btn{
   display: inline-block;
-  padding: 40px;
+  margin-top: 5px;
+  margin-left: 500px;
+}
+.rep{
+  align-items: center;
 }
 .btn-sm {
   display: inline-block;
   padding: 15px;
   background-color: green;
 }
+
  
 /* 
 

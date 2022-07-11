@@ -3,7 +3,7 @@ import Canciones from "./Canciones.js";
 
 const Playlist = (props) => {
   return (
-    <div className="container">
+    <div className="container mt-3">
       <div className="list-group">
         {props.audios.length > 0 &&
           props.audios.map((audio) => (
