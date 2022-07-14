@@ -1,25 +1,15 @@
 import React, { useRef, useState } from 'react';
 
 
-const previous = {
-    
-}
-const bplay = {
 
-}
-const pause = {
-
-}
-const next = {
-
-}
 const Play1 = (props) => {
+
     return (
         <div className="btn">
-            <button className="btn-sm" onClick={previous}id="boton"><i class="fas fa-arrow-circle-left fa-2x"></i></button>
-            <button className="btn-sm" onClick={bplay}><i class="far fa-play-circle fa-2x"></i></button>
-            <button className="btn-sm" onClick={pause}><i class="far fa-pause-circle fa-2x"></i></button>
-            <button className="btn-sm" onClick={next}><i class="fas fa-arrow-circle-right fa-2x"></i></button>
+            <button className="btn-sm" onClick={props.previous}id="boton"><i className="fas fa-arrow-circle-left fa-2x"></i></button>
+            <button className="btn-sm" onClick={props.bplay}><i className="far fa-play-circle fa-2x"></i></button>
+            <button className="btn-sm" onClick={props.pause}><i className="far fa-pause-circle fa-2x"></i></button>
+            <button className="btn-sm" onClick={props.next}><i className="fas fa-arrow-circle-right fa-2x"></i></button>
         <div className= "rep">
             <audio ref={props.audioRef} controls autoPlay ></audio>
             </div>
