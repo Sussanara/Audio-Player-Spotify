@@ -24,18 +24,18 @@ const initialState = [
 
 const Home = () => {
   const [audios] = useState(initialState);
+  const [actualSong, setActualSong] = useState(null)
   let audioRef = useRef(null);
   const setAudioSelected = ({ src }) => {
     audioRef.current.src = src;
     bplay();
   };
 
+  
+  
   const previous = () => {
-    let position= useRef!== null ? useRef == 0 ? state.length -1 : useRef -1 : 0; 
-    setAudioSelected (state[position].url, position);
-    bplay();
-  }
 
+  }
   const bplay = () => {
     audioRef.current.play()
   }
@@ -43,15 +43,16 @@ const Home = () => {
     audioRef.current.pause()
   }
   const next = () => {
-    let position= songsActive !== null ? songsActive == state.length - 1 ? 0 : songsActive + 1 : 0;
-    setSingleSong(state[position].url, position)
+    audioRef.current.src = audioRef.current.src[alt+1];
   }
+   
+
   return (
     <>
       <Playlist audios={audios} setAudioSelected={setAudioSelected} />
       <Play1 audioRef={audioRef} setAudioSelected={setAudioSelected} previous={previous} bplay={bplay} pause={pause} next={next}/>
     </>
   );
-};
+  }
 
 export default Home;
