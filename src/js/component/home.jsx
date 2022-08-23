@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Play1 from "./Play.js";
 import Playlist from "./Playlist.js";
 
@@ -24,7 +24,6 @@ const initialState = [
 
 const Home = () => {
   const [audios] = useState(initialState);
-  const [actualSong, setActualSong] = useState(null)
   let audioRef = useRef(null);
   const setAudioSelected = ({ src }) => {
     audioRef.current.src = src;
@@ -32,9 +31,8 @@ const Home = () => {
   };
 
   
-  
   const previous = () => {
-
+  
   }
   const bplay = () => {
     audioRef.current.play()
@@ -43,9 +41,9 @@ const Home = () => {
     audioRef.current.pause()
   }
   const next = () => {
-    audioRef.current.src = audioRef.current.src[alt+1];
-  }
-   
+    
+  } 
+ 
 
   return (
     <>

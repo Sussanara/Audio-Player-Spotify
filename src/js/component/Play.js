@@ -18,4 +18,4 @@ const Play1 = (props) => {
 }
 
 
-export default Play1;
+export default Play1; 
