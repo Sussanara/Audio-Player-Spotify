@@ -10,6 +10,7 @@ const Playlist = (props) => {
             <div className="col" key={audio.id}>
               <Canciones
                 src={audio.src}
+                id={audio.id}
                 alt={`Image ${audio.id}`}
                 setAudioSelected={props.setAudioSelected}
                 name={audio.name}

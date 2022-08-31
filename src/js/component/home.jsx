@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import Play1 from "./Play.js";
 import Playlist from "./Playlist.js";
 
-
 const initialState = [
   {
     id: 1,
@@ -21,36 +20,60 @@ const initialState = [
   },
 ];
 
-
 const Home = () => {
+  let idRef = useRef(null);
   const [audios] = useState(initialState);
   let audioRef = useRef(null);
-  const setAudioSelected = ({ src }) => {
-    audioRef.current.src = src;
+  const setAudioSelected = ({ id }) => {
+    idRef.current = id;
+    for (var song of audios) {
+      if (song.id === idRef.current) {
+        audioRef.current.src = song.src;
+      }
+    }
     bplay();
   };
 
-  
   const previous = () => {
-  
-  }
+    if (idRef.current === null) {
+      setAudioSelected({ id: initialState.length });
+    } else if (idRef.current === 1) {
+      setAudioSelected({ id: initialState.length });
+    } else {
+      idRef.current = idRef.current - 1;
+      setAudioSelected({ id: idRef.current });
+    }
+  };
   const bplay = () => {
-    audioRef.current.play()
-  }
+    audioRef.current.play();
+  };
   const pause = () => {
-    audioRef.current.pause()
-  }
+    audioRef.current.pause();
+  };
   const next = () => {
-    
-  } 
- 
+    if (idRef.current === null) {
+      setAudioSelected({ id: 2 });
+    } else if (idRef.current === initialState.length) {
+      setAudioSelected({ id: 1 });
+    } else {
+      idRef.current = idRef.current + 1;
+      setAudioSelected({ id: idRef.current });
+    }
+  };
 
   return (
     <>
       <Playlist audios={audios} setAudioSelected={setAudioSelected} />
-      <Play1 audioRef={audioRef} setAudioSelected={setAudioSelected} previous={previous} bplay={bplay} pause={pause} next={next}/>
+      <Play1
+        audioRef={audioRef}
+        setAudioSelected={setAudioSelected}
+        previous={previous}
+        bplay={bplay}
+        pause={pause}
+        next={next}
+      />
     </>
   );
-  }
+};
 
 export default Home;
