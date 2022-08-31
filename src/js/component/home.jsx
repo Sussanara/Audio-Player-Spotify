@@ -61,6 +61,28 @@ const Home = () => {
     }
   };
 
+  useEffect(() => {
+    getAudios();
+  }, [])
+  
+  const getAudios = () => {
+    fetch("https://assets.breatheco.de/apis/sound/songs", {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+    })
+    .then ((response) => {
+      return response.json(); 
+    })
+    .then((data) => { 
+      console.log(data)})
+  
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+  
   return (
     <>
       <Playlist audios={audios} setAudioSelected={setAudioSelected} />
